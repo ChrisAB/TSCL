@@ -87,7 +87,7 @@ if __name__ == '__main__':
     parser.add_argument('--load_weights')
     parser.add_argument('--weights_by_name',
                         action='store_true', default=False)
-    parser.add_argument("--environment", "-e", default="PongNoFrameskip-v4")
+    parser.add_argument("--environment", "-e", default="PongNoFrameskip-v3")
 
     subparsers = parser.add_subparsers(dest='command')
     train_parser = subparsers.add_parser('train')
