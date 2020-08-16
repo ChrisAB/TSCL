@@ -9,5 +9,5 @@ fi
 for i in `seq 1 $1`;
 do
     port=$(($start_port + $i))
-    docker run -d --network=host --name minecraft_$port quay.io/tambet/malmo:0.18 -port $port
+    sudo docker run -d --network=host --name minecraft_$port quay.io/tambet/malmo:0.18 -port $port
 done

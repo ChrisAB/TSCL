@@ -9,6 +9,6 @@ fi
 for i in `seq 1 $1`;
 do
     port=$(($start_port + $i))
-    docker kill minecraft_$port
-    docker rm minecraft_$port
+    sudo docker kill minecraft_$port
+    sudo docker rm minecraft_$port
 done
