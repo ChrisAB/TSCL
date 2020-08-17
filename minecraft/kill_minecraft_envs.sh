@@ -9,6 +9,5 @@ fi
 for i in `seq 1 $1`;
 do
     port=$(($start_port + $i))
-    sudo docker kill minecraft_$port
-    sudo docker rm minecraft_$port
+    sudo pkill launchClient
 done
