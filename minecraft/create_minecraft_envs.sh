@@ -9,5 +9,5 @@ fi
 for i in `seq 1 $1`;
 do
     port=$(($start_port + $i))
-    ./Malmo-install/Malmo-0.37.0-Linux-Ubuntu-18.04-64bit_withBoost_Python3.6/Minecraft/launchClient.sh -port $port
+    ./Malmo-install/Malmo-0.37.0-Linux-Ubuntu-16.04-64bit_withBoost_Python3.5/Minecraft/launchClient.sh -port $port
 done
