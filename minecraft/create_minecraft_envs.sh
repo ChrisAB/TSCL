@@ -9,5 +9,6 @@ fi
 for i in `seq 1 $1`;
 do
     port=$(($start_port + $i))
-    ./Malmo-install/Malmo-0.37.0-Linux-Ubuntu-18.04-64bit_withBoost_Python3.6/Minecraft/launchClient.sh -port $port > Malmo-$port.log 2>&1 &
+    ./Malmo-install/Malmo-0.37.0-Linux-Ubuntu-18.04-64bit_withBoost_Python3.6/Minecraft/launchClient.sh -port $port > Malmo-$port.log 2>&1
+    sleep 5m
 done

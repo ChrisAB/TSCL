@@ -31,7 +31,7 @@ The easiest approach is to run a virtual display using xvfb (Or X, but xvfb is s
 ```
 Xvfb :0 -screen 0 1920x1080x16
 ``` 
-This means create a screen 0 with 16bit colour and 1920x1080 pixels and export it to display nr. :0.
+This means create screen 0 with 16bit colour and 1920x1080 pixels and export it to display nr. :0.
 
 ### One active cell at a time
 
