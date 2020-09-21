@@ -100,8 +100,41 @@ Remove any previous branch of this project & clone it (If it's already present i
 !git clone https://github.com/ChrisAB/TSCL.git
 ```
 
+Install dependencies for running the virtual display
 
+```
+!sudo apt-get install -y xvfb x11-xserver-utils 
+```
 
+Start up virtual display. Since starting a virtual display stops if the terminal/cell is 'closed', we need to run it as a subprocess within python.
+```
+import subprocess
+subprocess.Popen(["Xvfb",":0","-screen", "0", "1920x1080x16"])
+```
+
+Set display 0 as the default display and allow anyone within the machine to access it.
+```
+%env DISPLAY=:0
+!xhost +
+```
+
+Run the minecraft clients. We need to run multiple clients. Also, the instances stop when cell stops, just like Xvfb, need to run it with subprocess
+```
+import subprocess
+subprocess.Popen(["./TSCL/minecraft/create_minecraft_envs.sh","2"])
+```
+
+The java clients take some time to boot up and there is a sleep for 5 minutes for each client so they don't boot up at the same time. This would cause them to read from the same file/stream causing inconsistent errors. (Some clients start, sometimes its the first, sometimes second, sometimes both but crashes later on, sometimes neither starts) THis could maybe be improved.
+```
+!sleep 10m
+```
+
+Start training.
+```
+!cd ./TSCL/minecraft && python ./run_minecraft.py --num_runners 2 train basic_0
+```
+
+# Project in Action
 
 <p align="center">
 <a href="http://www.youtube.com/watch?v=cada0d_aDIc" title="Minecraft bridge/gap 15x15 world"><img src="http://img.youtube.com/vi/cada0d_aDIc/0.jpg" alt="Minecraft bridge/gap 15x15 world"/></a>
